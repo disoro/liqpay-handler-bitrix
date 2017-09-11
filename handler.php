@@ -109,7 +109,7 @@ class LiqpayCheckoutHandler extends PaySystem\ServiceHandler
 
         $data = $request->get('data');
         $parsed_data = json_decode(base64_decode($data), true);
-file_put_contents($_SERVER['DOCUMENT_ROOT'].'/test_ds_'.$parsed_data['order_id'].'.txt', print_r($parsed_data, true));
+
         if ($this->isCorrectHash($payment, $request))
         {
             if ($parsed_data['status'] == 'success' || $parsed_data['status'] == 'sandbox')
